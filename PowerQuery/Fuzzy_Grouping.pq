@@ -1,7 +1,6 @@
 (tbl as table, col as text, thres as number)=>
 
 let
-
     Fuzzy_Group = Table.FuzzyGroup(
         tbl,
         col,
