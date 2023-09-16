@@ -1,5 +1,7 @@
 // Calculate contrast ratio based on hex value
-(HEX1 as text, HEX2 as text)=>
+let fnCheckColorContrast = 
+
+    (HEX1 as text, HEX2 as text) as text=>
 
 let 
     // Split strings into list by each character, convert to upper, remove hash
@@ -70,4 +72,20 @@ let
     contrast = if cratio >= min then "Enough Contrast" else "Not Enough Contrast"
    
 in 
-    contrast
+    contrast,
+
+
+fnType = type function (HEX1 as text, HEX2 as text) as text meta 
+[Documentation.Name = "fnCheckColorContrast",
+Documentation.LongDescription = "This function checks if there is enough contrast between two hex codes.",
+Documentation.Examples = {
+    [Description = "This checks if there is enough contrast between black and white.",
+    Code = "fnCheckColorContrast(""#FFFFFF"", ""#000000"")",
+    Result="Enough Contrast"],
+    [Description = "This checks if there is enough contrast between two shades of red.",
+    Code = "fnCheckColorContrast(""#FF0000"", ""#FE0000"")",
+    Result="Not Enough Contrast"]
+}]
+    in  
+Value.ReplaceType(fnCheckColorContrast, fnType)
+

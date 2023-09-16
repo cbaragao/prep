@@ -1,4 +1,5 @@
 // Calculate complimentary color based on hex value
+let fnGetCompColor = 
 (HEX as text)=>
 
 let 
@@ -58,4 +59,16 @@ let
 
     in
 
-CompColor
+CompColor,
+
+
+fnType = type function (HEX as text) as text meta 
+[Documentation.Name = "fnGetCompColor",
+Documentation.LongDescription = "This function takes a hex code and returns the complimentary color.",
+Documentation.Examples = {
+    [Description = "This gets the complimentary color for #E8DDB5 (dutch white).",
+    Code = "fnGetCompColor(""#E8DDB5"")",
+    Result="#17224A"]
+}]
+    in  
+Value.ReplaceType(fnGetCompColor, fnType)

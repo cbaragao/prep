@@ -1,5 +1,6 @@
 
 //Calculate font color based on hex value
+let fnGetFontColor = 
 (HEX as text)=>
 let 
     // Split strings into list by each character, convert to upper, remove hash
@@ -41,4 +42,16 @@ let
     // Determine font color
     fontcolor = if luminance > 0.5 then "Black" else "White"
 in 
-    fontcolor
+    fontcolor,
+
+
+fnType = type function (HEX as text) as text meta 
+[Documentation.Name = "fnGetFontColor",
+Documentation.LongDescription = "This function takes a hex code and returns whether the font should be black or white for readability.",
+Documentation.Examples = {
+    [Description = "This gets the font color for #666A86.",
+    Code = "fnCheckColorContrast(""#666A86"")",
+    Result="White"]
+}]
+    in  
+Value.ReplaceType(fnGetFontColor, fnType)
